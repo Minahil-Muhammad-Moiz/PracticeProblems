@@ -137,5 +137,66 @@ function digitize(n) {
     return n.toString().split('').reverse().map(Number)
 }
 
-console.log(digitize(324234));
+function findNextSquare(sq) {
+    if (sq > 0) {
+        let root = Math.sqrt(sq)
+        if (Number.isInteger(root)) return (root + 1) ** 2;
+    }
+    return -1;
+}
+
+function disemvowel(str) {
+    return str.replace(/[aeiou]/gi, '');
+}
+
+function DNAtoRNA(dna) {
+    return dna.replaceAll("T", "U")
+}
+
+function oddOrEven(array) {
+    let sum = 0;
+    array.forEach(element => {
+        return sum += element
+    });
+    return sum % 2 === 0 ? 'even' : 'odd'
+}
+
+var countSheep = function (num) {
+    if (num === 0) return "";
+    let result = "";
+    for (let i = 1; i <= num; i++) {
+        result += `${i} sheep...`;
+    }
+    return result;
+}
+
+const stringToNumber = function (str) {
+    return Number(str);
+}
+
+function past(h, m, s) {
+    return h * 3600 * 1000 + m * 60 * 1000 + s * 1000;
+}
+
+function betterThanAverage(classPoints, yourPoints) {
+    return (classPoints.reduce((a, b) => a + b, 0) + yourPoints) / (classPoints.length + 1) <= yourPoints ? true : false;
+}
+
+function opposite(number) {
+    return number * -1;
+}
+
+function duplicateCount(text) {
+    let numCount = {}
+    let reqText = text.toLowerCase().split('')
+    if (reqText.length > 0) {
+
+        reqText.map((letter) => {
+            (letter in numCount) ? numCount[letter] += 1 : numCount[letter] = 1
+        })
+
+        return Object.values(numCount).filter(value => value > 1).length;
+    } return 0;
+}
+
 
