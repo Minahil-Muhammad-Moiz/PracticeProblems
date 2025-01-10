@@ -199,4 +199,8 @@ function duplicateCount(text) {
     } return 0;
 }
 
+function findSmallestInt(arr) {
+    return Math.min(...arr);
+}
 
+console.log(findSmallestInt([1, 2, 3, 4]));
