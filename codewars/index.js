@@ -203,4 +203,18 @@ function findSmallestInt(arr) {
     return Math.min(...arr);
 }
 
+function order(words){
+    if (!words) return ""; // Return an empty string if input is empty
+
+    return words
+        .split(" ") // Split the input string into an array of words
+        .sort((a, b) => { 
+            // Extract numbers from words and compare them for sorting
+            const numA = a.match(/\d/);
+            const numB = b.match(/\d/);
+            return numA - numB;
+        })
+        .join(" "); // Join the sorted array back into a string
+}
+
 console.log(findSmallestInt([1, 2, 3, 4]));
