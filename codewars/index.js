@@ -203,18 +203,43 @@ function findSmallestInt(arr) {
     return Math.min(...arr);
 }
 
-function order(words){
-    if (!words) return ""; // Return an empty string if input is empty
-
+function order(words) {
+    if (!words) return "";
     return words
-        .split(" ") // Split the input string into an array of words
-        .sort((a, b) => { 
-            // Extract numbers from words and compare them for sorting
-            const numA = a.match(/\d/);
-            const numB = b.match(/\d/);
-            return numA - numB;
-        })
-        .join(" "); // Join the sorted array back into a string
+        .split(" ")
+        .sort((a, b) => {
+            let num1 = a.match(/\d/)
+            let num2 = b.match(/\d/)
+
+            return num1 - num2
+        }).join(' ')
 }
 
-console.log(findSmallestInt([1, 2, 3, 4]));
+function findUniqNum(arr) {
+    arr.sort((a, b) => a - b)
+    return arr[arr.length - 2] !== arr[arr.length - 1] ? arr[arr.length - 1] : arr[0] !== arr[1] && arr[0]
+}
+
+function findUniqStr(arr) {
+    arr.sort((a, b) => a.localeCompare(b))
+    return arr[arr.length - 2] !== arr[arr.length - 1] ? arr[arr.length - 1] : arr[0] !== arr[1] && arr[0]
+}
+
+function areYouPlayingBanjo(name) {
+    return name.toUpperCase().match(/^R/) ? name + " plays banjo" : name + " does not play banjo";
+}
+
+function findShort(s) {
+    return s.split(' ').sort((a, b) => {
+        let num1 = a.length
+        let num2 = b.length
+
+        return num1 - num2
+    })[0].length
+}
+
+function sumMix(x) {
+    return x.reduce((a, b) => Number(a) + Number(b), 0)
+}
+
+
