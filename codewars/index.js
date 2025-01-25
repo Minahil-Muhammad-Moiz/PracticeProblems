@@ -242,4 +242,32 @@ function sumMix(x) {
     return x.reduce((a, b) => Number(a) + Number(b), 0)
 }
 
+function isPangram(string) {
+    let alphas = "abcdefghIJKLmnopqrstuvwxyz".toLowerCase().split('')
+    let str = string.match(/[a-zA-Z]/gi).join('').toLowerCase();
+    return [...alphas].every(letter => str.includes(letter))
+}
 
+function friend(friends) {
+    return friends.filter(frn => frn.length === 4)
+}
+
+function high(x) {
+    let alphas = "abcdefghIJKLmnopqrstuvwxyz".toLowerCase().split('')
+    let words = x.split(' ')
+    let count = {};
+    words.forEach((word) => {
+        count[word] = 0
+        word.split('').forEach(letter => count[word] += (alphas.indexOf(letter) + 1))
+    })
+    return Object.keys(count).reduce((a, b) => count[a] >= count[b] ? a : b);
+}
+
+function feast(beast, dish) {
+    return beast[0] === dish[0] && beast.slice(-1) === dish.slice(-1)
+}
+
+const quarterOf = (month) => {
+    return [1, 2, 3].includes(month) ? 1 : [4, 5, 6].includes(month) ? 2 : [7, 8, 9].includes(month) ? 3 : [10, 11, 12].includes(month) && 4
+}
+console.log(quarterOf(3));
