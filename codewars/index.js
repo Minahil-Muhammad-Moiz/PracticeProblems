@@ -270,4 +270,27 @@ function feast(beast, dish) {
 const quarterOf = (month) => {
     return [1, 2, 3].includes(month) ? 1 : [4, 5, 6].includes(month) ? 2 : [7, 8, 9].includes(month) ? 3 : [10, 11, 12].includes(month) && 4
 }
-console.log(quarterOf(3));
+
+function comp(array1, array2) {
+    if (!array1 || !array2) return false;
+    if (array1.length !== array2.length) return false;
+
+    const sortedA1 = array1.sort((a, b) => a - b);
+    const sortedA2 = array2.sort((a, b) => a - b);
+
+    return sortedA1.every((val, index) => val * val === sortedA2[index])
+}
+
+function alphabetPosition(text) {
+    let alphas = "abcdefghIJKLmnopqrstuvwxyz".toLowerCase().split('')
+    let str = text.toLowerCase().match(/[a-zA-Z]/gi)
+    return str ? str.map(letter => alphas.indexOf(letter) + 1).join(' ') : '';
+}
+
+function duplicateEncode(word) {
+    if (!word || word === null || word === '') return "";
+    let objCount = {}
+    let str = word.toLowerCase().split('');
+    str.forEach(letter => objCount[letter] = (objCount[letter] || 0) + 1);
+    return str.map(letter => objCount[letter] === 1 ? '(' : ')').join('')
+}
