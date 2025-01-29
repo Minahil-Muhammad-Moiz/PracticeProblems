@@ -294,3 +294,20 @@ function duplicateEncode(word) {
     str.forEach(letter => objCount[letter] = (objCount[letter] || 0) + 1);
     return str.map(letter => objCount[letter] === 1 ? '(' : ')').join('')
 }
+
+var number = function (array) {
+    return array.map((letter, index) => `${index + 1}: ${letter}`)
+}
+
+function noSpace(x) {
+    return x.split(' ').join('')
+}
+
+function updateLight(current) {
+    let lights = ['green', 'yellow', 'red']
+    let light = lights.indexOf(current)
+    return light === lights.length-1 ? lights[0]: lights[light+1]
+}
+
+
+console.log(updateLight("red"))
